@@ -122,6 +122,8 @@ TARGET_RECOVERY_DEVICE_DIRS += device/samsung/espresso-common
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/espresso-common/custombootimg.mk
 TARGET_NOT_USE_GZIP_RECOVERY_RAMDISK := true
 
+TARGET_NEEDS_NON_PIE_SUPPORT := true
+
 # TWRP
 HAVE_SELINUX := true
 RECOVERY_SDCARD_ON_DATA := true
