@@ -26,4 +26,13 @@ public class Startup extends BroadcastReceiver {
     public void onReceive(final Context context, final Intent bootintent) {
         DockFragmentActivity.restore(context);
     }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        if (context.getSharedPreferences("prefs", Context.MODE_PRIVATE).getBoolean("moduleactive", false)) {
+            SU su = new SU();
+            su.runCommand("insmod " + MainActivity.SEC_DOC_KEYBOARD_PATH);
+            su.close();
+        }
+    }
 }
