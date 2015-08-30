@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a4e6583_05e27203",
+        "filename": "DeviceSettings/src/com/cyanogenmod/settings/device/DeviceSettings.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000016
+      },
+      "writtenOn": "2015-08-30T20:03:55Z",
+      "side": 1,
+      "message": "string.",
+      "revId": "67cb5b055261c29b865184ac5e23163d8435a6c6",
+      "serverId": "f8201d64-d729-4630-b91d-5f8be02869f0",
+      "unresolved": false
+    }
+  ]
+}
