@@ -27,9 +27,39 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 LOCAL_PATH := device/samsung/espresso-common
 
-# Recovery Ramdisk
+# Enable higher-res drawables while keeping mdpi as primary source
+ifneq ($(filter p3100 p3110,$(TARGET_DEVICE)),)
+PRODUCT_AAPT_CONFIG := large
+else
+PRODUCT_AAPT_CONFIG := xlarge
+endif
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_LOCALES += mdpi
+
+# Common Recovery Ramdisk
 PRODUCT_PACKAGES += \
     twrp.fstab
+
+ifneq ($(filter p3100 p3110,$(TARGET_DEVICE)),)
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.espresso \
+    init.espresso.usb.rc \
+    init.espresso.rc \
+    ueventd.espresso.rc
+
+# Recovery Ramdisk
+PRODUCT_PACKAGES += \
+    init.recovery.espresso.rc
+else
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.espresso \
+    fstab.espresso10 \
+    init.espresso10.usb.rc \
+    init.espresso10.rc \
+    ueventd.espresso10.rc
+endif
 
 # GPS
 PRODUCT_COPY_FILES += \
